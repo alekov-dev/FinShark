@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.Dtos.Comment;
 using api.Dtos.Stock.Comment;
 using api.Models;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace api.Mappers
 {
@@ -19,6 +20,15 @@ namespace api.Mappers
                 Content = commentModel.Content,
                 CreatedOn = commentModel.CreatedOn,
                 StockId = commentModel.StockId
+            };
+        }
+
+        public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto commentDto)
+        {
+            return new Comment
+            {
+                Title = commentDto.Title,
+                Content = commentDto.Content,
             };
         }
 
