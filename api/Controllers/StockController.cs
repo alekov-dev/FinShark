@@ -77,6 +77,7 @@ namespace api.Controllers
             }   
             
             var stockModel = await _stockRepo.UpdateAsync(id, updateDto);
+            
             if(stockModel == null)
             {
                 return NotFound();            
